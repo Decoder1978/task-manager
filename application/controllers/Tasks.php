@@ -63,4 +63,11 @@ class Tasks extends CI_Controller {
 		}
 	}
 
+	public function delete_task(){
+		$id = $this->input->post("id");
+		$this->Crud_model->delete("tasks",$id);
+		$this->session->userdata("success","Task Deleted Successfully!");
+		redirect(base_url("Tasks"));
+	}
+
 }
