@@ -20,8 +20,10 @@ class Tasks extends CI_Controller {
 		$this->form_validation->set_rules("status","Status","trim");
 		$this->form_validation->set_rules("notes","Notes","trim");
 		if(!$this->form_validation->run()){
+			$status= $this->Crud_model->get_all("status");
 			$data['title']= "Add Task";
 			$data['view_path']="tasks/add_task";
+			$data['status']=$status;
 			$this->load->view("index",$data);
 		}
 		else{
