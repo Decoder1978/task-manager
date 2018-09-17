@@ -47,7 +47,9 @@ class Tasks extends CI_Controller {
 		$this->form_validation->set_rules("status","Status","trim");
 		$this->form_validation->set_rules("notes","Notes","trim");
 		if(!$this->form_validation->run()){
+			$taks=$this->Crud_model->get_one("tasks",$id);
 			$data['title']= "Edit Task";
+			$data['task']=$task;
 			$data['view_path']="tasks/edit_task";
 			$this->load->view("index",$data);
 		}
