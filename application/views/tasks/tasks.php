@@ -42,7 +42,7 @@
           <td>
             <div class="btn-group">
               <a class="btn btn-warning" href="<?=base_url()?>Tasks/edit_task/<?=$one->id?>"><i class="fa fa-edit"></i></a>
-              <a class="btn btn-danger delete" href=""><i class="fa fa-trash"></i></a>
+              <a class="btn btn-danger delete_task" data-id="<?=$one->id?>" href="#"><i class="fa fa-trash"></i></a>
             </div>
           </td>
         </tr>
