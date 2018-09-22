@@ -13,7 +13,6 @@ class Timers extends CI_Controller {
       $data=array(){
         "task_id"=>$this->input->post("task_id"),
         "start"=>$this->input->post("start"),
-        "end"=>$this->input->post("task_id"),
         "stopped"=>0
       }
       $this->Crud_model->insert("timers",$data);
@@ -24,4 +23,22 @@ class Timers extends CI_Controller {
     }
     echo json_encode($response);
   }
+
+	public function stop_timer(){
+    $response['result']="success";
+    $timer= $this->Crud_model->get_one("timers",$this->input->post("timer_id"));
+    if(!empty($timer)){
+      $data=array(){
+        "end"=>$this->input->post("end"),
+        "stopped"=>1
+      }
+      $this->Crud_model->update("timers",$this->input->("timer_id"),$data);
+    }
+    else{
+      $result['result']="fail";
+      $result['error']="Timer doesn't exist";
+    }
+    echo json_encode($response);
+  }
+
 }
