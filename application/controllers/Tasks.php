@@ -5,9 +5,18 @@ class Tasks extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->load->model("Tasks_model");
 	}
 	public function index(){
 		$tasks= $this->Crud_model->get_all("tasks");
+		foreach ($tasks as $one) {
+			$one->unstopped=false;
+			$unstopped= $this->Tasks_model->get_unstopped_timer($one->id);
+			if(!empty($unstopped)){
+				$one->unstopped=true;
+				$one->timer_id= $unstopped->id;
+			}
+		}
 		$data['title']= "Tasks";
 		$data['view_path']="tasks/tasks";
 		$data['tasks']=$tasks;
