@@ -40,7 +40,14 @@ $i=0;
             <?=$one->deadline ?>
           </td>
           <td>
-            <a class="btn btn-sm btn-success" href="#"><i class="fa fa-clock"></i></a>
+            <?php if($one->unstopped){ ?>
+              <a title="Stop Timer" class="btn btn-sm btn-danger stop_timer" timer_id="<?=$one->timer_id?>" task_id="<?=$one->id?>" href="#"><i class="fa fa-clock"></i></a>
+              <?php
+            }
+            else{
+            ?>
+            <a title="Start Timer" class="btn btn-sm btn-success start_timer" task_id="<?=$one->id?>" href="#"><i class="fa fa-clock"></i></a>
+          <?php } ?>
           </td>
           <td>
             <div class="btn-group">
