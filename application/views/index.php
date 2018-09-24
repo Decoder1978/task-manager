@@ -9,6 +9,15 @@
     <title><?=$title?></title>
   </head>
   <body>
+    <!-- BEGIN TOPBAR -->
+    <nav class="navbar bg-dark mx-auto">
+      <ul class="navbar-nav mx-auto">
+        <li class="navbar-item active">
+          <a class="nav-link" href="<?=base_url()?>Tasks">Tasks</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- END TOPBAR -->
     <?php $this->load->view($view_path)?>
     <!-- BEGIN SCRIPTS -->
     <script src="<?= base_url() ?>assets/jquery-3.3.1.min.js"></script>
