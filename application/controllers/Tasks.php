@@ -82,4 +82,14 @@ class Tasks extends CI_Controller {
 		redirect(base_url("Tasks"));
 	}
 
+	public function task($task_id){
+		$task= $this->Crud_model->get_one("tasks",$task_id);
+		$timers= $this->Tasks_model->get_task_timers($task_id);
+		$data['title']="Task Info";
+		$data['view_path']="tasks/task";
+		$data['task']=$task;
+		$data['timers']=$timers;
+		$this->load->view("index",$data);
+	}
+
 }
