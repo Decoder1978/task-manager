@@ -7,4 +7,12 @@ class Tasks_model extends CI_Model{
     $query=$this->db->get("timers");
     return $query->row();
   }
+
+  function get_task_timers($task_id){
+    $this->db->where("task_id",$task_id);
+    $query= $this->db->get("timers");
+    retutn $query->result();
+  }
+
+
 }
