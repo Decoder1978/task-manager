@@ -34,7 +34,7 @@ $i=0;
             <?= $i ?>
           </td>
           <td>
-            <?= $one->task ?>
+            <a href="<?=base_url()?>Tasks/task/<?=$one->id?>"><?= $one->task ?></a>
           </td>
           <td>
             <?=$one->deadline ?>
