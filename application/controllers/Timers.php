@@ -12,7 +12,7 @@ class Timers extends CI_Controller {
     if(!empty($task)){
       $data=array(
         "task_id"=>$this->input->post("task_id"),
-        "start"=>$this->input->post("start"),
+        "start"=>date("Y-m-d H:i:s"),
         "stopped"=>0
 			);
       $timer_id=$this->Crud_model->insert("timers",$data);
@@ -30,7 +30,7 @@ class Timers extends CI_Controller {
     $timer= $this->Crud_model->get_one("timers",$this->input->post("timer_id"));
     if(!empty($timer)){
       $data=array(
-        "end"=>$this->input->post("end"),
+        "end"=>date("Y-m-d H:i:s"),
         "stopped"=>1
       );
       $this->Crud_model->update("timers",$this->input->post("timer_id"),$data);
