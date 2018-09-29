@@ -55,7 +55,7 @@
           End
         </th>
         <th>
-          Timer
+          Duration
         </th>
         <th>
           Action
@@ -78,14 +78,15 @@
             <?=$one->end ?>
           </td>
           <td>
-            <?php if(!$one->stopped){ ?>
-              <a title="Stop Timer" class="btn btn-sm btn-danger stop_timer" timer_id="<?=$one->id?>" task_id="<?=$one->task_id?>" href="#"><i class="fa fa-clock"></i></a>
-              <?php
+            <?php if($one->stopped){
+              $duration= strtotime($one->end)- strtotime($one->start);
+              $duration= ceil($duration/60);
+              echo $duration." mins";
             }
             else{
+              echo "Running...";
+            }
             ?>
-            <a title="Start Timer" class="btn btn-sm btn-success start_timer" task_id="<?=$one->task_id?>" href="#"><i class="fa fa-clock"></i></a>
-          <?php } ?>
           </td>
           <td>
             <div class="btn-group">
