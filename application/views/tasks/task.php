@@ -1,6 +1,18 @@
 <div class="container">
   <h4 class="text-success mb-4">Task Info</h4>
   <div class="row">
+    <div class="col-sm-12">
+      <?php if($task->unstopped){ ?>
+        <a title="Stop Timer" class="btn btn-sm btn-danger stop_timer float-right"  task_id="<?=$task->id?>" href="#"><i class="fa fa-clock"></i></a>
+        <?php
+      }
+      else{
+      ?>
+      <a title="Start Timer" class="btn btn-sm btn-success start_timer float-right" task_id="<?=$task->id?>" href="#"><i class="fa fa-clock"></i></a>
+    <?php } ?>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-sm-3">
       <strong>Task</strong>
     </div>
