@@ -41,12 +41,12 @@ $i=0;
           </td>
           <td>
             <?php if($one->unstopped){ ?>
-              <a title="Stop Timer" class="btn btn-sm btn-danger stop_timer" timer_id="<?=$one->timer_id?>" task_id="<?=$one->id?>" href="#"><i class="fa fa-clock"></i></a>
+              <a title="Stop Timer" class="btn btn-sm btn-danger stop_timer" timer_id="<?=$one->timer_id?>" task_id="<?=$one->id?>" href='#' ><i class="fa fa-clock"></i></a>
               <?php
             }
             else{
             ?>
-            <a title="Start Timer" class="btn btn-sm btn-success start_timer" task_id="<?=$one->id?>" href="#"><i class="fa fa-clock"></i></a>
+            <a title="Start Timer" class="btn btn-sm btn-success start_timer" task_id="<?=$one->id?>" href='#'><i class="fa fa-clock"></i></a>
           <?php } ?>
           </td>
           <td>

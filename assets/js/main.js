@@ -7,7 +7,7 @@ $(document).ready(function(){
     }
   });
 
-  $(".start_timer").click(function(){
+  $(document).on("click",".start_timer",function(){
     var current=$(this);
     var task_id= current.attr("task_id");
     $.ajax({
@@ -22,6 +22,26 @@ $(document).ready(function(){
           current.removeClass("start_timer");
           current.removeClass("btn-success");
           current.attr("timer_id",response.timer_id);
+        }
+      }
+    });
+
+  });
+
+  $(document).on("click",".stop_timer",function(){
+    var current=$(this);
+    var timer_id= current.attr("timer_id");
+    $.ajax({
+      url: base_url +"Timers/stop_timer",
+      type: "POST",
+      data:{"timer_id":timer_id},
+      success: function(response){
+        response= JSON.parse(response);
+        if(response.result=="success"){
+          current.removeClass("stop_timer");
+          current.removeClass("btn-danger");
+          current.addClass("start_timer");
+          current.addClass("btn-success");
         }
       }
     });

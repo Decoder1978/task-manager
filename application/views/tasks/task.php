@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-12">
       <?php if($task->unstopped){ ?>
-        <a title="Stop Timer" class="btn btn-sm btn-danger stop_timer float-right"  task_id="<?=$task->id?>" href="#"><i class="fa fa-clock"></i></a>
+        <a title="Stop Timer" class="btn btn-sm btn-danger stop_timer float-right" timer_id="<?=$task->timer_id?>"  task_id="<?=$task->id?>" href="#"><i class="fa fa-clock"></i></a>
         <?php
       }
       else{
