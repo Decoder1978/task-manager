@@ -55,6 +55,11 @@
   <!-- BEGIN TIMERS -->
   <h4 class="text-success mb-4 mt-4">Task Timers</h4>
   <div class="row">
+    <div class="col-sm-12 text-center mb-4">
+        <a class="btn btn-primary" href="<?=base_url()?>Timers/add_timer/<?=$task->id?>">Add Timer Manually</a>
+    </div>
+  </div>
+  <div class="row">
     <table class="col-sm-12 table table-hover">
       <thead>
         <th>
