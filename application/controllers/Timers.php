@@ -42,4 +42,25 @@ class Timers extends CI_Controller {
     echo json_encode($response);
   }
 
+	function add_timer($task_id){
+		$this->form_validation->set_rules("start","Start","trim|required");
+		$this->form_validation->set_rules("end","End","trim");
+		if(!$this->form_validation->run()){
+			$data['title']="Add Timer";
+			$data['view_path']="timers/add_timer";
+			$this->load->view("index",$data);
+		}
+		else{
+			$data=array(
+				"task_id"=>$task_id,
+				"start"=>$this->input->post("start")?date("Y-m-d H:i:s",strtotime($this->input->post("start"))):NULL,
+				"end"=>$this->input->post("end")?date("Y-m-d H:i:s",strtotime($this->input->post("end"))):NULL,
+				"stopped"=>$this->input->post("end")?1:0
+			);
+			$this->Crud_model->insert("timers",$data);
+			$this->session->set_flashdata("success","Timer Added Successfully!");
+			redirect(base_url("Tasks/task/$task_id"));
+		}
+	}
+
 }
