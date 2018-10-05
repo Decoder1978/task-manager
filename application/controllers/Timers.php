@@ -63,4 +63,26 @@ class Timers extends CI_Controller {
 		}
 	}
 
+	function edit_timer($timer_id){
+		$this->form_validation->set_rules("start","Start","trim|required");
+		$this->form_validation->set_rules("end","End","trim");
+		$timer= $this->Crud_model->get_one("timers",$timer_id);
+		if(!$this->form_validation->run()){
+			$data['title']="Edit Timer";
+			$data['timer']=$timer;
+			$data['view_path']="timers/edit_timer";
+			$this->load->view("index",$data);
+		}
+		else{
+			$data=array(
+				"start"=>$this->input->post("start")?date("Y-m-d H:i:s",strtotime($this->input->post("start"))):NULL,
+				"end"=>$this->input->post("end")?date("Y-m-d H:i:s",strtotime($this->input->post("end"))):NULL,
+				"stopped"=>$this->input->post("end")?1:0
+			);
+			$this->Crud_model->update("timers",$timer_id,$data);
+			$this->session->set_flashdata("success","Timer Updated Successfully!");
+			redirect(base_url("Tasks/task/$timer->task_id"));
+		}
+	}
+
 }
