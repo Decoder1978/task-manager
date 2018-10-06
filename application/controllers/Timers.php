@@ -85,4 +85,11 @@ class Timers extends CI_Controller {
 		}
 	}
 
+	public function delete_timer($timer_id){
+		$timer= $this->Crud_model->get_one("timers",$timer_id);
+		$this->Crud_model->delete("timers",$timer_id);
+		$this->session->userdata("success","Timer Deleted Successfully!");
+		redirect(base_url("Tasks/task/$timer->task_id"));
+	}
+
 }
