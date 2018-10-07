@@ -48,4 +48,12 @@ $(document).ready(function(){
 
   });
 
+  $(".delete_timer").click(function(){
+    var id = $(this).attr("data-id");
+    var conf= confirm("Are you sure you want to delete this timer?");
+    if(conf){
+      window.location= base_url+"Timers/delete_timer/"+id;
+    }
+  });
+
 });
