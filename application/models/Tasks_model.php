@@ -14,5 +14,13 @@ class Tasks_model extends CI_Model{
     return $query->result();
   }
 
+  function get_task_time($task_id){
+    $this->db->select("SUM(TIMEDIFF(end,start)) as time");
+    $this->db->where("task_id",$task_id);
+    $this->db->where("end IS NOT NULL");
+    $query= $this->db->get("timers");
+    return $query->row();
+  }
+
 
 }
