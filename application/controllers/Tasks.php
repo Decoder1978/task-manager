@@ -91,10 +91,12 @@ class Tasks extends CI_Controller {
 			$task->timer_id= $unstopped->id;
 		}
 		$timers= $this->Tasks_model->get_task_timers($task_id);
+		$time=$this->Tasks_model->get_task_time($task_id)->time;
 		$data['title']="Task Info";
 		$data['view_path']="tasks/task";
 		$data['task']=$task;
 		$data['timers']=$timers;
+		$data['time']=$time;
 		$this->load->view("index",$data);
 	}
 
