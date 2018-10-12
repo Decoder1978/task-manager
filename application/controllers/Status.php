@@ -22,7 +22,7 @@ class Status extends CI_Controller {
 		}
 		else{
 			$data=array(
-				"task"=>$this->input->post("status")
+				"name"=>$this->input->post("name")
 			);
 			$this->Crud_model->insert("status",$data);
 			$this->session->set_flashdata("success","Status Added Successfully!");
