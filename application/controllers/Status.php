@@ -13,4 +13,20 @@ class Status extends CI_Controller {
 		$data['status']=$status;
 		$this->load->view("index",$data);
   }
+	public function add_status(){
+		$this->form_validation->set_rules("name","Status Name","trim|required");
+		if(!$this->form_validation->run()){
+			$data['title']= "Add Status";
+			$data['view_path']="status/add_status";
+			$this->load->view("index",$data);
+		}
+		else{
+			$data=array(
+				"task"=>$this->input->post("status")
+			);
+			$this->Crud_model->insert("status",$data);
+			$this->session->set_flashdata("success","Status Added Successfully!");
+			redirect(base_url("Status"));
+		}
+	}
 }
