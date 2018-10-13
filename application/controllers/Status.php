@@ -29,4 +29,24 @@ class Status extends CI_Controller {
 			redirect(base_url("Status"));
 		}
 	}
+
+	public function edit_status($id){
+		$this->form_validation->set_rules("name","Status Name","trim|required");
+		if(!$this->form_validation->run()){
+			$status=$this->Crud_model->get_one("status",$id);
+			$data['title']= "Edit Status";
+			$data['status']= $status;
+			$data['view_path']="status/edit_status";
+			$this->load->view("index",$data);
+		}
+		else{
+			$data=array(
+				"name"=>$this->input->post("name")
+			);
+			$this->Crud_model->update("status",$id,$data);
+			$this->session->set_flashdata("success","Status Updated Successfully!");
+			redirect(base_url("Status"));
+		}
+	}
+
 }
