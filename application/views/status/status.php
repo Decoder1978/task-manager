@@ -32,7 +32,7 @@ $i=0;
           </td>
           <td>
             <div class="btn-group">
-              <a class="btn btn-sm btn-warning" href="<?=base_url()?>Tasks/edit_status/<?=$one->id?>"><i class="fa fa-edit"></i></a>
+              <a class="btn btn-sm btn-warning" href="<?=base_url()?>Status/edit_status/<?=$one->id?>"><i class="fa fa-edit"></i></a>
               <a class="btn btn-sm btn-danger delete_status" data-id="<?=$one->id?>" href="#"><i delete_status" data-id="<?=$one->id?>" class="fa fa-trash"></i></a>
             </div>
           </td>
