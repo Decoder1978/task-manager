@@ -49,4 +49,10 @@ class Status extends CI_Controller {
 		}
 	}
 
+	public function delete_status($id){
+		$this->Crud_model->delete("status",$id);
+		$this->session->userdata("success","Status Deleted Successfully!");
+		redirect(base_url("Status"));
+	}
+
 }
