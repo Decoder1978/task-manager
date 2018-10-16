@@ -56,4 +56,12 @@ $(document).ready(function(){
     }
   });
 
+  $(".delete_status").click(function(){
+    var id = $(this).attr("data-id");
+    var conf= confirm("Are you sure you want to delete this timer?");
+    if(conf){
+      window.location= base_url+"Status/delete_status/"+id;
+    }
+  });
+
 });
