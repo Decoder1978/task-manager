@@ -12,9 +12,8 @@ class Reports_model extends CI_Model{
     if($filter['status']){
       $this->db->where("tasks.status",$filter['status']);
     }
-    $this->db->where();
     $this->db->from("tasks");
-    $thisdb->join("status","status.id = tasks.status","left");
+    $this->db->join("status","status.id = tasks.status","left");
     $query=$this->db->get();
     return $query->result();
   }
