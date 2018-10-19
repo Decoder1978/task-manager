@@ -1,4 +1,16 @@
 <div class="container">
+  <div class="row">
+    <div class="card text-white bg-warning mb-3 mr-1 col-sm-4" >
+  <div class="card-body">
+    <h6 class="card-title">Time Spent in the Past Week: <?=$week_hours?> hours</h6>
+  </div>
+</div>
+<div class="card text-white bg-info mb-3 col-sm-4" >
+  <div class="card-body">
+    <h6 class="card-title">Time Spent in the Past Month: <?=$month_hours?> hours</h6>
+  </div>
+</div>
+  </div>
   <div class="row mb-4">
     <div class="col-sm-12">
       <form method="POST" action="" class="form-row">
