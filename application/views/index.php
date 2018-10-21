@@ -10,10 +10,16 @@
   </head>
   <body>
     <!-- BEGIN TOPBAR -->
-    <nav class="navbar bg-dark mx-auto">
+    <nav class="navbar navbar-expand-lg navbar-expand-md bg-dark mx-auto">
       <ul class="navbar-nav mx-auto">
-        <li class="navbar-item active">
-          <a class="nav-link" href="<?=base_url()?>Tasks">Tasks</a>
+        <li class="nav-item">
+        <h2><a class="nav-link" href="<?=base_url()?>Tasks">Tasks</a></h2>
+        </li>
+        <li class="nav-item">
+          <h2>  <a class="nav-link" href="<?=base_url()?>Status">Status</a></h2>
+        </li>
+        <li class="nav-item">
+          <h2>  <a class="nav-link" href="<?=base_url()?>Reports">Reports</a></h2>
         </li>
       </ul>
     </nav>
